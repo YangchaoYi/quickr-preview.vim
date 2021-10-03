@@ -199,6 +199,7 @@ function! QFList(linenr)
         " Note if the buffer of interest is already listed
         let l:alreadylisted = buflisted(l:entry.bufnr)
         " Open the buffer in the preview window and jump to the line of interest
+        call ClosePreviewWindow()
         call OpenPreviewWindow(bufname(l:entry.bufnr), l:entry.lnum)
         " Go to preview window
         set eventignore+=all
