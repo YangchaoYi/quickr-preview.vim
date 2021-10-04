@@ -27,9 +27,9 @@ endfunction
 " while in the qf/loc window.
 "
 function! ClosePreviewWindow()
-    let l:orig_win_height = winheight(0)
+"     let l:orig_win_height = winheight(0)
     pclose
-    execute 'resize' l:orig_win_height
+"     execute 'resize' l:orig_win_height
 endfunction
 " }}
 
