@@ -54,7 +54,7 @@ endfunction
 " if the qf/loc list has not yet been cached, or (for vim 8.1) if
 " it detects the qf/loc list has changed since it was last cached.
 "
-if v:version >= 801
+if v:version >= 801 || has('nvim')
     function! GetLatestQfLocList()
         if !exists('b:qftick')
             let b:qftick = -1
@@ -276,10 +276,12 @@ augroup END
 
 " Mappings {{
 nnoremap <silent> <buffer> <plug>(quickr_preview) :silent call QFList(line("."))<CR>
+" nnoremap <buffer> <plug>(quickr_preview) :call QFList(line("."))<CR>
 if g:quickr_preview_keymaps
     nmap <leader><space> <plug>(quickr_preview)
 endif
 nnoremap <buffer> <cr> :silent call HandleEnterQuickfix(line("."))<CR>
+" nnoremap <buffer> <cr> :call HandleEnterQuickfix(line("."))<CR>
 " }}
 
 call InitializeQuickrPreview()
